@@ -44,12 +44,5 @@ class ParkinsonsDiseaseHandler(RequestHandler):
         # check is the person has Parkinson's Disease
         isParkinson = octave.classify(theta1, theta2, np.array(attr))
 
-    	if fnm == "20120721_atc_voiceparkinsons":
-    		updrs_val[0] = random.randint(5, 50)
-    		isParkinson = 1
-    	else:
-    		updrs_val[0] = random.randint(1, 4)
-    		isParkinson = 0
-
         self.render("output.html", ipk = isParkinson, updrs = updrs_val[0])
         #self.write({"status" : "Successfull", "code" : 200, "isParkinson" : isParkinson, "UPDRS" : updrs[0], "features" : attr})
