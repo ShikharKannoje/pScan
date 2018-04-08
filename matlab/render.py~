@@ -1,0 +1,15 @@
+from pymongo import MongoClient
+
+db = MongoClient()["data"]
+
+def writeTheta(fname):
+	dt = []
+	for i in open(fname).readlines():
+		dt.append(map(float, i.split()))
+	db.theta.insert({fname.split(".")[0]: dt})
+
+def writeTrain(fname):
+	
+
+writeTheta("theta1.txt")
+writeTheta("theta2.txt")
